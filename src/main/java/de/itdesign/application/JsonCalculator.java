@@ -1,5 +1,7 @@
 package de.itdesign.application;
 
+import org.json.JSONObject;
+
 public class JsonCalculator {
 
     public static void main(String[] args) {
@@ -18,5 +20,20 @@ public class JsonCalculator {
             System.exit(1);
         }
     }
+
+    public JSONObject readFileIntoJsonObject(String fileName){
+
+        return null;
+
+    }
+
+    public JSONObject generateOutputJsonObject(JSONObject dataJsonObject, JSONObject outputsJsonObject){
+
+
+        return null;
+    }
+
+    
+    
 }
 
