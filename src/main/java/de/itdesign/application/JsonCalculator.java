@@ -1,5 +1,6 @@
 package de.itdesign.application;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class JsonCalculator {
@@ -22,6 +23,12 @@ public class JsonCalculator {
     }
 
     public JSONObject readFileIntoJsonObject(String fileName){
+
+        return null;
+
+    }
+
+    public JSONArray readFileIntoJsonArray(String fileName){
 
         return null;
 
