@@ -4,8 +4,15 @@ public class Operation {
 
     private Name name;
     private Function function;
-    private Field field;
+    private OperationFields operationFields;
     private Filter filter;
+
+    public OperationFields getOperationFields() {
+        return operationFields;
+    }
+    public void setOperationFields(OperationFields operationFields) {
+        this.operationFields = operationFields;
+    }
     
     public Name getName() {
         return name;
@@ -19,12 +26,7 @@ public class Operation {
     public void setFunction(Function function) {
         this.function = function;
     }
-    public Field getField() {
-        return field;
-    }
-    public void setField(Field field) {
-        this.field = field;
-    }
+    
     public Filter getFilter() {
         return filter;
     }
