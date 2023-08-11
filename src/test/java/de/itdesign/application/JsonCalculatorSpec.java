@@ -37,7 +37,6 @@ public class JsonCalculatorSpec {
 
         }
 
-
     }
 
     @Test
@@ -68,7 +67,7 @@ public class JsonCalculatorSpec {
 
     }
 
-
+    //This function takes a list of functions and checks if they are all valid operations
     private Boolean checkForValidOperationFunction(List<Function> functionList){
 
         String[] validOperations = {"average", "sum", "min", "max"};
@@ -86,8 +85,8 @@ public class JsonCalculatorSpec {
     }
 
 
+    
     private Operations unpackJSONArrayIntoOperationsObject(JSONArray operationsJsonArray) {
-
 
         List<Operation> operationsList = new ArrayList<>();
 
@@ -96,11 +95,7 @@ public class JsonCalculatorSpec {
             JSONObject operationJsonObject = operationsJsonArray.getJSONObject(i);
 
             Name name = new Name();
-            Function
-            function = new Function();
-            Population population = new Population();
-            Area area = new Area();
-            ExtendedStatistics extendedStatistics = new ExtendedStatistics();
+            Function function = new Function();
             Filter filter = new Filter();
             OperationFields operationFields = new OperationFields();
 
