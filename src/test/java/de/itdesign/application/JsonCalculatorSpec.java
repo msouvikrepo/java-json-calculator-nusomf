@@ -3,11 +3,15 @@ package de.itdesign.application;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 
@@ -19,11 +23,10 @@ public class JsonCalculatorSpec {
 
 
     @Test
-    public void testOutputsRoundedValueDecimalPLaces() {
+    public void testOutputsRoundedValueDecimalPLaces() throws JSONException, IOException {
 
         //Read output file into JSONArray
-        JsonCalculator jsonCalculator = new JsonCalculator();
-        JSONArray outputsJsonArray = jsonCalculator.readFileIntoJsonArray("");
+        JSONArray outputsJsonArray = parseJsonFileIntoJsonArray("");
 
         //Unpack JSONArray into Outputs object
         Outputs outputs = unpackJSONArrayIntoOutputsObject(outputsJsonArray);
@@ -31,7 +34,7 @@ public class JsonCalculatorSpec {
         //Check assertion that each Rounded Value has exactly two decimal places
         for (Output output: outputs.getOutputsList()) {
 
-            double roundedValue = output.getRoundedValue().getRoundedDouble();
+            String roundedValue = output.getRoundedValue().getRoundedValue();
             int decimalPlaces = countDecimalPlaces(roundedValue);
             assertTrue("Rounded Value should have exactly two decimal places", decimalPlaces == 2);
 
@@ -40,11 +43,10 @@ public class JsonCalculatorSpec {
     }
 
     @Test
-    public void testValidOperation() {
+    public void testValidOperation() throws JSONException, IOException {
 
         //Read Operations file into Operations JSONArray
-        JsonCalculator jsonCalculator = new JsonCalculator();
-        JSONObject operationsJsonObject = jsonCalculator.readFileIntoJsonObject("");
+        JSONObject operationsJsonObject = JsonCalculator.parseJsonFileIntoJsonObject("");
         JSONArray operationsJsonArray = operationsJsonObject.getJSONArray("operations");
         
         Operations operations = new Operations();
@@ -85,7 +87,12 @@ public class JsonCalculatorSpec {
     }
 
 
-    
+    public static JSONArray readFileIntoJsonArray(String fileName){
+
+        return null;
+
+    }
+
     private Operations unpackJSONArrayIntoOperationsObject(JSONArray operationsJsonArray) {
 
         List<Operation> operationsList = new ArrayList<>();
@@ -144,7 +151,7 @@ public class JsonCalculatorSpec {
             RoundedValue roundedValue = new RoundedValue();
             Output output = new Output();
             name.setName(jsonObject.getString("name"));
-            roundedValue.setRoundedDouble(jsonObject.getDouble("RoundedValue"));
+            roundedValue.setRoundedValue(jsonObject.getString("RoundedValue"));
             output.setName(name);
             output.setRoundedValue(roundedValue);
 
@@ -158,9 +165,14 @@ public class JsonCalculatorSpec {
 
     }
 
+    private JSONArray parseJsonFileIntoJsonArray(String fileName) throws JSONException, IOException{
+        String jsonArrayString = new String(Files.readAllBytes(Paths.get(fileName)));
+        return new JSONArray(jsonArrayString);
+    }
+
     //Counts number of decimal places in a given Double value
-    private int countDecimalPlaces(double value) {
-        String valueString = Double.toString(value);
+    private int countDecimalPlaces(String valueString) {
+        
         int index = valueString.indexOf(".");
 
         if (index < 0) {

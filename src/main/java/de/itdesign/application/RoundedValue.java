@@ -2,15 +2,14 @@ package de.itdesign.application;
 
 public class RoundedValue {
 
-    private Double roundedDouble;
+    private String roundedValue;
 
-    public Double getRoundedDouble() {
-        return roundedDouble;
+    public String getRoundedValue() {
+        return roundedValue;
     }
 
-    public void setRoundedDouble(Double roundedDouble) {
-        this.roundedDouble = roundedDouble;
+    public void setRoundedValue(String roundedValue) {
+        this.roundedValue = roundedValue;
     }
-
-    
+ 
 }

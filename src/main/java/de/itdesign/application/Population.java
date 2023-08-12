@@ -2,14 +2,16 @@ package de.itdesign.application;
 
 public class Population {
 
-    private int population;
+    private Double population;
 
-    public int getPopulation() {
+    public Double getPopulation() {
         return population;
     }
 
-    public void setPopulation(int population) {
+    public void setPopulation(Double population) {
         this.population = population;
     }
+
+    
 
 }
