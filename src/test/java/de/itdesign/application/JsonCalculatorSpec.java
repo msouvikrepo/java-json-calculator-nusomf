@@ -26,7 +26,7 @@ public class JsonCalculatorSpec {
     public void testOutputsRoundedValueDecimalPLaces() throws JSONException, IOException {
 
         //Read output file into JSONArray
-        JSONArray outputsJsonArray = parseJsonFileIntoJsonArray("");
+        JSONArray outputsJsonArray = parseJsonFileIntoJsonArray("target/output.json");
 
         //Unpack JSONArray into Outputs object
         Outputs outputs = unpackJSONArrayIntoOutputsObject(outputsJsonArray);
@@ -46,7 +46,7 @@ public class JsonCalculatorSpec {
     public void testValidOperation() throws JSONException, IOException {
 
         //Read Operations file into Operations JSONArray
-        JSONObject operationsJsonObject = JsonCalculator.parseJsonFileIntoJsonObject("");
+        JSONObject operationsJsonObject = JsonCalculator.parseJsonFileIntoJsonObject("operations.json");
         JSONArray operationsJsonArray = operationsJsonObject.getJSONArray("operations");
         
         Operations operations = new Operations();
@@ -86,13 +86,6 @@ public class JsonCalculatorSpec {
         return checkValidOperation;
     }
 
-
-    public static JSONArray readFileIntoJsonArray(String fileName){
-
-        return null;
-
-    }
-
     private Operations unpackJSONArrayIntoOperationsObject(JSONArray operationsJsonArray) {
 
         List<Operation> operationsList = new ArrayList<>();
@@ -106,7 +99,7 @@ public class JsonCalculatorSpec {
             Filter filter = new Filter();
             OperationFields operationFields = new OperationFields();
 
-            name.setName(operationJsonObject.getString("Name"));
+            name.setName(operationJsonObject.getString("name"));
 
             function.setFunction(operationJsonObject.getString("function"));
             JSONArray fieldsJsonArray = operationJsonObject.getJSONArray("field");
@@ -115,7 +108,7 @@ public class JsonCalculatorSpec {
 
             for (int j = 0; j < fieldsJsonArray.length(); j++){
                 Field field = new Field();
-                field.setField(fieldsJsonArray.getString(i));
+                field.setField(fieldsJsonArray.getString(j));
                 operationFieldsList.add(field);
             }
 
@@ -151,7 +144,7 @@ public class JsonCalculatorSpec {
             RoundedValue roundedValue = new RoundedValue();
             Output output = new Output();
             name.setName(jsonObject.getString("name"));
-            roundedValue.setRoundedValue(jsonObject.getString("RoundedValue"));
+            roundedValue.setRoundedValue(jsonObject.getString("roundedValue"));
             output.setName(name);
             output.setRoundedValue(roundedValue);
 

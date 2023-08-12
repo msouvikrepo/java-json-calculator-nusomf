@@ -27,28 +27,29 @@ public class JsonCalculator {
             final String OUTPUT_FILE = args[2];
 
             // <my code here>
+            
 
             //  Read Data file into Data Json Object
             JSONObject dataJsonObject = parseJsonFileIntoJsonObject(DATA_FILE);
-
+            
             //  Fill Data Entries Object from Data Json Object
             Entries entries = createDataEntriesObjectfromDataJsonObject(dataJsonObject);
 
             //  Read Operations file into Operations JsonObject
             JSONObject operationsJsonObject = parseJsonFileIntoJsonObject(OPERATIONS_FILE);
-
+            
             //  Get Operations object from Operations JsonObject
             Operations operations = createOperationsObjectFromOperationsJsonObject(operationsJsonObject);
             
-            // Get list of Operations from Operations object
+            //  Get list of Operations from Operations object
             List<Operation> operationList = operations.getOperationsList();
 
-            //Inititialize list of Output objects
+            //  Inititialize list of Output objects
             List<Output> outputsList = new ArrayList<>();
 
             //  for each Operation object, perform func operation on filtered data entries object that returns an output object
             for(Operation operation : operationList){
-                
+               
                 // get filtered Entries Object from current Operation filter
                 Entries filteredEntries = filterDataEntriesByName(entries, operation.getFilter());
                 
@@ -60,12 +61,15 @@ public class JsonCalculator {
                 
             }
 
-            //  Create Outputs object from list of output objects
+           //  Create Outputs object from list of output objects
             Outputs outputs = new Outputs();
             outputs.setOutputsList(outputsList);
 
-            // Create Output json file from Outputs object
-            createOutputFileFromOutputsObject(outputs, OUTPUT_FILE);
+            // Create Outputs JsonArray from Outputs object
+            JSONArray outputsJsonArray = createOutputsJSONArrayFromOutputsObject(outputs);
+
+            // Create Outputs Json file from Outputs JsonArray
+            createOutputFileFromOutputsJsonArray(outputsJsonArray, OUTPUT_FILE);
 
         } else {
             System.exit(1);
@@ -77,7 +81,7 @@ public class JsonCalculator {
     public static Operations createOperationsObjectFromOperationsJsonObject(JSONObject operationsJsonObject){
         //  Get Operations JsonArray from Operations JsonObject
         JSONArray operationsJsonArray = operationsJsonObject.getJSONArray("operations");
-
+        
         //  Initialize list of Operations
         List<Operation> operationsList = new ArrayList<>();
 
@@ -96,7 +100,9 @@ public class JsonCalculator {
             operation.setName(name);
             Function function = new Function();
             function.setFunction(operationJsonObject.getString("function"));
+            operation.setFunction(function);
             Filter filter = new Filter();
+            filter.setFilter(operationJsonObject.getString("filter"));
             operation.setFilter(filter);
             
             //  Get Operation Fields object from JsonArray fields
@@ -115,7 +121,7 @@ public class JsonCalculator {
 
             operationsList.add(operation);
         }
-
+        
         Operations operations = new Operations();
         operations.setOperationsList(operationsList);
         return operations;
@@ -123,12 +129,25 @@ public class JsonCalculator {
 
     public static JSONArray createOutputsJSONArrayFromOutputsObject(Outputs outputs){
 
+        JSONArray outputsJsonArray = new JSONArray();
+        List<Output> outputList = outputs.getOutputsList();
+      
+        for(Output output : outputList){
 
-        return null;
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("name", output.getName().getName());
+            jsonObject.put("roundedValue" , output.getRoundedValue().getRoundedValue());
+            outputsJsonArray.put(jsonObject);
+
+        }
+
+        return outputsJsonArray;
     }
 
-    public static void createOutputFileFromOutputsJsonArray(JSONArray outputsJsonArray, String outputFilePath){
+    public static void createOutputFileFromOutputsJsonArray(JSONArray outputsJsonArray, String outputFilePath) throws IOException{
         
+        String outputsJsonArrayString = outputsJsonArray.toString();
+        Files.write(Paths.get(outputFilePath), outputsJsonArrayString.getBytes());
     }
 
     public static Operation createOperationObjectFromOperationJsonObject(JSONObject operationJsonObject){
@@ -222,13 +241,25 @@ public class JsonCalculator {
 
     public static Output performOperationOnFilteredData(Entries filteredEntries, Operation operation){
 
-        
+        Output output = new Output();
 
-        //  for each Operation Field, perform the operation function on the filtered entries
-        //  Store the output in an output object
+        //  Perform the operation function on the filtered entries
+        String operationFunction = operation.getFunction().getFunction();
         
+        if (operationFunction.equals("average")){
+            output = computeAverageOfFilteredEntries(operation, filteredEntries);
+        }
+        else if (operationFunction.equals("sum")){
+            output = computeSumOfFilteredEntries(operation, filteredEntries);
+        }
+        else if (operationFunction.equals("max")){
+            output = computeMaxOfFilteredEntries(operation, filteredEntries);
+        }
+        else if (operationFunction.equals("min")){
+            output = computeMinOfFilteredEntries(operation, filteredEntries);
+        }
 
-        return null;
+        return output;
     }
 
     public static Output computeAverageOfFilteredEntries(Operation operation, Entries filteredEntries){
@@ -301,7 +332,7 @@ public class JsonCalculator {
     public static String formatDoubleToStringTwoDecimalPlaces(Double unformattedDoubleValue){
 
         // Format the average to two decimal places
-        DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat df = new DecimalFormat("0.00");
         String formattedValue = df.format(unformattedDoubleValue);
 
         return formattedValue;
@@ -313,7 +344,7 @@ public class JsonCalculator {
 
         List<Entry> filteredEntriesList = filteredEntries.getEntriesList();
         for (Entry entry : filteredEntriesList){
-            if(operationFieldName.equals("Population")){
+            if(operationFieldName.equals("population")){
                 fieldValuesList.add(entry.getPopulation().getPopulation());
             }
             if(operationFieldName.equals("area")){
