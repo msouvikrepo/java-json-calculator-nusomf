@@ -188,6 +188,8 @@ public class UtilityImpl implements UtilityInterface{
 
         //  Perform the operation function on the filtered entries
         String operationFunction = operation.getFunction().getFunction();
+  
+        // The aggregation of the list of field double values is done within the compute functions to add future groupBy operations at the cost of code repition
         
         if (operationFunction.equals("average")){
             output = computeAverageOfFilteredEntries(operation, filteredEntries);
@@ -244,7 +246,7 @@ public class UtilityImpl implements UtilityInterface{
     public Output computeSumOfFilteredEntries(Operation operation, Entries filteredEntries){
         
 
-        //  Unbox Operation object
+        //  Unbox Operation object to get Operation Name
         String operationName = operation.getOperationName().getName();
         
         //  Get a list of Field Values from Filtered Entries for the given Operation fields
