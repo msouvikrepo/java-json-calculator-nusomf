@@ -1,4 +1,4 @@
-package de.itdesign.application.operations;
+package de.itdesign.application.pojo.operations;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,18 +1,18 @@
 package de.itdesign.application.util;
 
-import de.itdesign.application.data.Entries;
-import de.itdesign.application.operations.Filter;
-import de.itdesign.application.operations.Operation;
-import de.itdesign.application.operations.Operations;
-import de.itdesign.application.output.Output;
-import de.itdesign.application.output.Outputs;
-
 import java.io.IOException;
 import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import de.itdesign.application.pojo.data.Entries;
+import de.itdesign.application.pojo.operations.Filter;
+import de.itdesign.application.pojo.operations.Operation;
+import de.itdesign.application.pojo.operations.Operations;
+import de.itdesign.application.pojo.output.Output;
+import de.itdesign.application.pojo.output.Outputs;
 
 public interface UtilityInterface {
 

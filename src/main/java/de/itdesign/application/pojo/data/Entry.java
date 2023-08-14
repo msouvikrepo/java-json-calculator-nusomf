@@ -1,4 +1,4 @@
-package de.itdesign.application.data;
+package de.itdesign.application.pojo.data;
 
 public class Entry {
 

@@ -14,9 +14,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import de.itdesign.application.data.*;
-import de.itdesign.application.operations.*;
-import de.itdesign.application.output.*;
+import de.itdesign.application.pojo.data.*;
+import de.itdesign.application.pojo.operations.*;
+import de.itdesign.application.pojo.output.*;
 
 
 public class UtilityImpl implements UtilityInterface{

@@ -1,4 +1,4 @@
-package de.itdesign.application.output;
+package de.itdesign.application.pojo.output;
 
 import java.util.ArrayList;
 import java.util.List;
