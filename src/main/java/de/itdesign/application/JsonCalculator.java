@@ -1,18 +1,21 @@
 package de.itdesign.application;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.text.DecimalFormat;
+
 import java.util.ArrayList;
-import java.util.Collections;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import de.itdesign.application.data.Entries;
+import de.itdesign.application.operations.Operation;
+import de.itdesign.application.operations.Operations;
+import de.itdesign.application.output.Output;
+import de.itdesign.application.output.Outputs;
 
 public class JsonCalculator {
 
@@ -28,7 +31,6 @@ public class JsonCalculator {
 
             // <my code here>
             
-
             //  Utility Class Impl object
             UtilityImpl utilityImpl = new UtilityImpl();
 

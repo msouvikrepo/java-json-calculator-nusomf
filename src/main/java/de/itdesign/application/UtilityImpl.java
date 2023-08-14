@@ -14,6 +14,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import de.itdesign.application.data.*;
+import de.itdesign.application.operations.*;
+import de.itdesign.application.output.*;
+
+
 public class UtilityImpl implements UtilityInterface{
 
     public Operations createOperationsObjectFromOperationsJsonObject(JSONObject operationsJsonObject){
@@ -34,9 +39,9 @@ public class UtilityImpl implements UtilityInterface{
             JSONObject operationJsonObject = operationsJsonArray.getJSONObject(l);
 
             //  Fill in Operation object elements from Operation JsonObject
-            Name name = new Name();
-            name.setName(operationJsonObject.getString("name"));
-            operation.setName(name);
+            OperationName operationName = new OperationName();
+            operationName.setName(operationJsonObject.getString("name"));
+            operation.setOperationName(operationName);
             Function function = new Function();
             function.setFunction(operationJsonObject.getString("function"));
             operation.setFunction(function);
@@ -72,7 +77,7 @@ public class UtilityImpl implements UtilityInterface{
         for(Output output : outputList){
 
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("name", output.getName().getName());
+            jsonObject.put("name", output.getOutputName().getName());
             jsonObject.put("roundedValue" , output.getRoundedValue().getRoundedValue());
             outputsJsonArray.put(jsonObject);
 
@@ -89,13 +94,13 @@ public class UtilityImpl implements UtilityInterface{
 
     public Operation createOperationObjectFromOperationJsonObject(JSONObject operationJsonObject){
         
-        Name name = new Name();
+        OperationName operationName = new OperationName();
         Function function = new Function();
         List<Field> fieldsList = new ArrayList<>();
         OperationFields operationFields = new OperationFields();
         Filter filter = new Filter();
 
-        name.setName(operationJsonObject.getString("name"));
+        operationName.setName(operationJsonObject.getString("name"));
         function.setFunction(operationJsonObject.getString("function"));
         filter.setFilter(operationJsonObject.getString("filter"));
 
@@ -109,7 +114,7 @@ public class UtilityImpl implements UtilityInterface{
         operationFields.setOperationFieldsList(fieldsList);
     
         Operation operation = new Operation();
-        operation.setName(name);
+        operation.setOperationName(operationName);
         operation.setFunction(function);
         operation.setOperationFields(operationFields);
         operation.setFilter(filter);
@@ -125,19 +130,19 @@ public class UtilityImpl implements UtilityInterface{
 
                 JSONObject entryJsonObject = entriesJsonArray.getJSONObject(i);
 
-                Name name = new Name();
+                DataName dataName = new DataName();                
                 Population population = new Population();
                 Area area = new Area();
                 ExtendedStatistics extendedStatistics = new ExtendedStatistics();
 
-                name.setName(entryJsonObject.getString("name"));
+                dataName.setName(entryJsonObject.getString("name"));
                 population.setPopulation(entryJsonObject.getDouble("population"));
                 JSONObject extendedStatisticsJsonObject = entryJsonObject.getJSONObject("extendedStatistics");
                 area.setArea(extendedStatisticsJsonObject.getDouble("area"));
                 extendedStatistics.setArea(area);
 
                 Entry entry = new Entry();
-                entry.setName(name);
+                entry.setDataName(dataName);
                 entry.setPopulation(population);
                 entry.setExtendedStatistics(extendedStatistics);
 
@@ -161,7 +166,7 @@ public class UtilityImpl implements UtilityInterface{
         
         for(Entry entry : entriesList){
 
-            String entryName = entry.getName().getName();
+            String entryName = entry.getDataName().getName();
             Matcher matcher = pattern.matcher(entryName);
             boolean patternMatches = matcher.matches();
 
@@ -203,7 +208,7 @@ public class UtilityImpl implements UtilityInterface{
     public Output computeAverageOfFilteredEntries(Operation operation, Entries filteredEntries){
         
         //  Unbox Operation object
-        String operationName = operation.getName().getName();
+        String operationName = operation.getOperationName().getName();
         
         //  Get a list of Field Values from Filtered Entries for the given Operation fields
         List<Double> filteredEntriesFieldValues = getfilteredEntriesFieldValues(operation, filteredEntries);
@@ -240,7 +245,7 @@ public class UtilityImpl implements UtilityInterface{
         
 
         //  Unbox Operation object
-        String operationName = operation.getName().getName();
+        String operationName = operation.getOperationName().getName();
         
         //  Get a list of Field Values from Filtered Entries for the given Operation fields
         List<Double> filteredEntriesFieldValues = getfilteredEntriesFieldValues(operation, filteredEntries);
@@ -300,7 +305,7 @@ public class UtilityImpl implements UtilityInterface{
     public Output computeMinOfFilteredEntries(Operation operation, Entries filteredEntries){
         
         //  Unbox Operation object
-        String operationName = operation.getName().getName();
+        String operationName = operation.getOperationName().getName();
         
         //  Get a list of Field Values from Filtered Entries for the given Operation fields
         List<Double> filteredEntriesFieldValues = getfilteredEntriesFieldValues(operation, filteredEntries);
@@ -317,7 +322,7 @@ public class UtilityImpl implements UtilityInterface{
     public Output computeMaxOfFilteredEntries(Operation operation, Entries filteredEntries){
 
         //  Unbox Operation object
-        String operationName = operation.getName().getName();
+        String operationName = operation.getOperationName().getName();
         
         //  Get a list of Field Values from Filtered Entries for the given Operation fields
         List<Double> filteredEntriesFieldValues = getfilteredEntriesFieldValues(operation, filteredEntries);
@@ -335,9 +340,9 @@ public class UtilityImpl implements UtilityInterface{
     public Output createResultOutputObject(String operationName, Double valueDouble){
 
         Output output = new Output();
-        Name name = new Name();
-        name.setName(operationName);
-        output.setName(name);
+        OutputName outputName = new OutputName();
+        outputName.setName(operationName);
+        output.setOutputName(outputName);
         RoundedValue roundedValue = new RoundedValue();
         roundedValue.setRoundedValue(formatDoubleToStringTwoDecimalPlaces(valueDouble));
         output.setRoundedValue(roundedValue);

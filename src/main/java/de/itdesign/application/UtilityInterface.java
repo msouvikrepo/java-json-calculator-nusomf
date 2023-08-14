@@ -1,5 +1,12 @@
 package de.itdesign.application;
 
+import de.itdesign.application.data.Entries;
+import de.itdesign.application.operations.Filter;
+import de.itdesign.application.operations.Operation;
+import de.itdesign.application.operations.Operations;
+import de.itdesign.application.output.Output;
+import de.itdesign.application.output.Outputs;
+
 import java.io.IOException;
 import java.util.List;
 

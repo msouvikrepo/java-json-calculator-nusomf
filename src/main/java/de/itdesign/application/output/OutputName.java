@@ -1,6 +1,6 @@
-package de.itdesign.application;
+package de.itdesign.application.output;
 
-public class Name {
+public class OutputName {
 
     private String name;
 
@@ -11,5 +11,5 @@ public class Name {
     public void setName(String name) {
         this.name = name;
     }
-    
+ 
 }

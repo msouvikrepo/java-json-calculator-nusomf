@@ -1,17 +1,18 @@
-package de.itdesign.application;
+package de.itdesign.application.data;
 
 public class Entry {
 
-    private Name name;
+    private DataName dataName;
+    
+    public DataName getDataName() {
+        return dataName;
+    }
+    public void setDataName(DataName dataName) {
+        this.dataName = dataName;
+    }
     private Population population;
     private ExtendedStatistics extendedStatistics;
-    
-    public Name getName() {
-        return name;
-    }
-    public void setName(Name name) {
-        this.name = name;
-    }
+        
     public Population getPopulation() {
         return population;
     }

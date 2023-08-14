@@ -1,12 +1,19 @@
-package de.itdesign.application;
+package de.itdesign.application.operations;
 
 public class Operation {
 
-    private Name name;
+    private OperationName operationName;
     private Function function;
     private OperationFields operationFields;
     private Filter filter;
 
+    public OperationName getOperationName() {
+        return operationName;
+    }
+    public void setOperationName(OperationName operationName) {
+        this.operationName = operationName;
+    }
+    
     public OperationFields getOperationFields() {
         return operationFields;
     }
@@ -14,12 +21,6 @@ public class Operation {
         this.operationFields = operationFields;
     }
     
-    public Name getName() {
-        return name;
-    }
-    public void setName(Name name) {
-        this.name = name;
-    }
     public Function getFunction() {
         return function;
     }

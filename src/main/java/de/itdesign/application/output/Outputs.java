@@ -1,4 +1,4 @@
-package de.itdesign.application;
+package de.itdesign.application.output;
 
 import java.util.ArrayList;
 import java.util.List;

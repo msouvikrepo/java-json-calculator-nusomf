@@ -1,4 +1,4 @@
-package de.itdesign.application;
+package de.itdesign.application.data;
 
 public class ExtendedStatistics {
 
