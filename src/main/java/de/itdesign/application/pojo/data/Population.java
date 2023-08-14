@@ -2,16 +2,14 @@ package de.itdesign.application.pojo.data;
 
 public class Population {
 
-    private Double population;
+    private double population;
 
-    public Double getPopulation() {
+    public double getPopulation() {
         return population;
     }
 
-    public void setPopulation(Double population) {
+    public void setPopulation(double population) {
         this.population = population;
     }
-
-    
 
 }
