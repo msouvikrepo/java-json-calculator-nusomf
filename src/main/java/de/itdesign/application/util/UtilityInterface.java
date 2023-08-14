@@ -1,4 +1,4 @@
-package de.itdesign.application;
+package de.itdesign.application.util;
 
 import de.itdesign.application.data.Entries;
 import de.itdesign.application.operations.Filter;

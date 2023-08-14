@@ -1,4 +1,4 @@
-package de.itdesign.application;
+package de.itdesign.application.util;
 
 import java.io.IOException;
 import java.nio.file.Files;
