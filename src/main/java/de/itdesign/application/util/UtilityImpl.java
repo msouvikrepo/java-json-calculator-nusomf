@@ -14,12 +14,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import de.itdesign.application.pojo.data.*;
-import de.itdesign.application.pojo.operations.*;
-import de.itdesign.application.pojo.output.*;
+import de.itdesign.application.model.data.*;
+import de.itdesign.application.model.operations.*;
+import de.itdesign.application.model.output.*;
 
 
-public class UtilityImpl implements UtilityInterface{
+public class UtilityImpl implements Utility{
 
     public Operations createOperationsObjectFromOperationsJsonObject(JSONObject operationsJsonObject){
         
@@ -189,7 +189,7 @@ public class UtilityImpl implements UtilityInterface{
         //  Perform the operation function on the filtered entries
         String operationFunction = operation.getFunction().getFunction();
   
-        // The aggregation of the list of field double values is done within the compute functions to add future groupBy operations at the cost of code repition
+        // The aggregation of the list of field double values is done within the compute functions to allow future groupBy operations at the cost of code repition
         
         if (operationFunction.equals("average")){
             output = computeAverageOfFilteredEntries(operation, filteredEntries);

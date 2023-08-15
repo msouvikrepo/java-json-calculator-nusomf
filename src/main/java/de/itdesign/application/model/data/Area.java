@@ -1,4 +1,4 @@
-package de.itdesign.application.pojo.data;
+package de.itdesign.application.model.data;
 
 public class Area {
     

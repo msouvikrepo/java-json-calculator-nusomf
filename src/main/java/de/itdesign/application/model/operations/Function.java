@@ -1,4 +1,4 @@
-package de.itdesign.application.pojo.operations;
+package de.itdesign.application.model.operations;
 
 public class Function {
 

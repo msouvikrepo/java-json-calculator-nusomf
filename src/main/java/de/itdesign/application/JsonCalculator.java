@@ -11,11 +11,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import de.itdesign.application.pojo.data.Entries;
-import de.itdesign.application.pojo.operations.Operation;
-import de.itdesign.application.pojo.operations.Operations;
-import de.itdesign.application.pojo.output.Output;
-import de.itdesign.application.pojo.output.Outputs;
+import de.itdesign.application.model.data.Entries;
+import de.itdesign.application.model.operations.Operation;
+import de.itdesign.application.model.operations.Operations;
+import de.itdesign.application.model.output.Output;
+import de.itdesign.application.model.output.Outputs;
 import de.itdesign.application.util.UtilityImpl;
 
 

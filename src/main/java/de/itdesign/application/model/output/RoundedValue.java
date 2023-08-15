@@ -1,4 +1,4 @@
-package de.itdesign.application.pojo.output;
+package de.itdesign.application.model.output;
 
 public class RoundedValue {
 

@@ -1,6 +1,6 @@
-package de.itdesign.application.pojo.data;
+package de.itdesign.application.model.output;
 
-public class DataName {
+public class OutputName {
 
     private String name;
 
@@ -11,7 +11,5 @@ public class DataName {
     public void setName(String name) {
         this.name = name;
     }
-
-
-   
+ 
 }
