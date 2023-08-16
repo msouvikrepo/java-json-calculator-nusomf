@@ -137,8 +137,6 @@ public class UtilityImplTest {
         return jsonArray;
     }
 
-    
-
     //  Fixture Filter
     public Filter getFixtureFilter(){
 
@@ -244,53 +242,53 @@ public class UtilityImplTest {
     //  Fixture Data Entries
     public Entries getFixtureDataEntries(){
         
-        DataName dataName1 = new DataName();
-        dataName1.setName("New York");
-        Population population1 = new Population();
-        population1.setPopulation(123456789);
-        Area area1 = new Area();
-        area1.setArea(987654.321);
-        ExtendedStatistics extendedStatistics1 = new ExtendedStatistics();
-        extendedStatistics1.setArea(area1);
+        DataName dataNameOne = new DataName();
+        dataNameOne.setName("New York");
+        Population populationOne = new Population();
+        populationOne.setPopulation(123456789);
+        Area areaOne = new Area();
+        areaOne.setArea(987654.321);
+        ExtendedStatistics extendedStatisticsOne = new ExtendedStatistics();
+        extendedStatisticsOne.setArea(areaOne);
 
-        Entry entry1 = new Entry();
-        entry1.setDataName(dataName1);
-        entry1.setPopulation(population1);
-        entry1.setExtendedStatistics(extendedStatistics1);
-
-
-        DataName dataName2 = new DataName();
-        dataName2.setName("Seattle");
-        Population population2 = new Population();
-        population2.setPopulation(258741369);
-        Area area2 = new Area();
-        area2.setArea(6541.59);
-        ExtendedStatistics extendedStatistics2 = new ExtendedStatistics();
-        extendedStatistics2.setArea(area2);
-
-        Entry entry2 = new Entry();
-        entry2.setDataName(dataName2);
-        entry2.setPopulation(population2);
-        entry2.setExtendedStatistics(extendedStatistics2);
+        Entry entryOne = new Entry();
+        entryOne.setDataName(dataNameOne);
+        entryOne.setPopulation(populationOne);
+        entryOne.setExtendedStatistics(extendedStatisticsOne);
 
 
-        DataName dataName3 = new DataName();
-        dataName3.setName("Regensburg");
-        Population population3 = new Population();
-        population3.setPopulation(134218);
-        Area area3 = new Area();
-        area3.setArea(80.76);
-        ExtendedStatistics extendedStatistics3 = new ExtendedStatistics();
-        extendedStatistics3.setArea(area3);
+        DataName dataNameTwo = new DataName();
+        dataNameTwo.setName("Seattle");
+        Population populationTwo = new Population();
+        populationTwo.setPopulation(258741369);
+        Area areaTwo = new Area();
+        areaTwo.setArea(6541.59);
+        ExtendedStatistics extendedStatisticsTwo = new ExtendedStatistics();
+        extendedStatisticsTwo.setArea(areaTwo);
 
-        Entry entry3 = new Entry();
-        entry3.setDataName(dataName3);
-        entry3.setPopulation(population3);
-        entry3.setExtendedStatistics(extendedStatistics3);
+        Entry entryTwo = new Entry();
+        entryTwo.setDataName(dataNameTwo);
+        entryTwo.setPopulation(populationTwo);
+        entryTwo.setExtendedStatistics(extendedStatisticsTwo);
+
+
+        DataName dataNameThree = new DataName();
+        dataNameThree.setName("Regensburg");
+        Population populationThree = new Population();
+        populationThree.setPopulation(134218);
+        Area areaThree = new Area();
+        areaThree.setArea(80.76);
+        ExtendedStatistics extendedStatisticsThree = new ExtendedStatistics();
+        extendedStatisticsThree.setArea(areaThree);
+
+        Entry entryThree = new Entry();
+        entryThree.setDataName(dataNameThree);
+        entryThree.setPopulation(populationThree);
+        entryThree.setExtendedStatistics(extendedStatisticsThree);
         
 
         Entries entries =new Entries();
-        List<Entry> dataList = Arrays.asList(entry1, entry2, entry3);
+        List<Entry> dataList = Arrays.asList(entryOne, entryTwo, entryThree);
         entries.setEntriesList(dataList);
 
         return entries;
