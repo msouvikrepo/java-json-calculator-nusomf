@@ -35,10 +35,8 @@ public class JsonCalculator {
 
             // <my code here>
             
-            //  Utility Class Impl object
             UtilityImpl utilityImpl = new UtilityImpl();
 
-            //  Read Data file into Data JsonObject
             JSONObject dataJsonObject = new JSONObject();
             try {
                 dataJsonObject = utilityImpl.parseJsonFileIntoJsonObject(DATA_FILE);
@@ -50,7 +48,6 @@ public class JsonCalculator {
                 e.printStackTrace();
             }
             
-            //  Create Data Entries pojo from Data JsonObject
             Entries entries = new Entries();
             try {
         
@@ -61,7 +58,6 @@ public class JsonCalculator {
                 e.printStackTrace();
             }
 
-            //  Read Operations file into Operations JsonObject
             JSONObject operationsJsonObject = new JSONObject();
             try {
                 operationsJsonObject = utilityImpl.parseJsonFileIntoJsonObject(OPERATIONS_FILE);
@@ -73,7 +69,6 @@ public class JsonCalculator {
                 e.printStackTrace();
             }
             
-            //  Load Operations pojo from Operations JsonObject
             Operations operations = new Operations();
             try {
                 
@@ -84,24 +79,18 @@ public class JsonCalculator {
                 e.printStackTrace();
             }
             
-            //  Get list of Operations from Operations pojo
             List<Operation> operationList = operations.getOperationsList();
 
-            //  Inititialize list of Output objects
             List<Output> outputsList = new ArrayList<>();
 
             try {
-                
-                //  for each Operation, perform operation function on filtered data that returns an output
+
                 for(Operation operation : operationList){
                 
-                    // get filtered Entries from current Operation filter
                     Entries filteredEntries = utilityImpl.filterDataEntriesByName(entries, operation.getFilter());
                     
-                    //perform operation on filtered data to get output
                     Output output = utilityImpl.performOperationOnFilteredData(filteredEntries, operation);
                     
-                    //Add output to list of outputs
                     outputsList.add(output);
                     }
 
@@ -113,14 +102,11 @@ public class JsonCalculator {
                 e.printStackTrace();
             }
 
-            //  Create Outputs object from list of output objects
             Outputs outputs = new Outputs();
             outputs.setOutputsList(outputsList);
 
-            // Create Outputs JsonArray from Outputs object
             JSONArray outputsJsonArray = utilityImpl.createOutputsJSONArrayFromOutputsObject(outputs);
 
-            // Create Outputs Json file from Outputs JsonArray
             try {
                 utilityImpl.createOutputFileFromOutputsJsonArray(outputsJsonArray, OUTPUT_FILE);
             } catch (IOException e) {
