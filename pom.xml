@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>de.itdesign.application</groupId>
-  <artifactId>itdesign-java-json-calculator-nusomf</artifactId>
+  <artifactId>java-json-calculator-nusomf</artifactId>
   <version>1</version>
 
   <name>itdesign-java-json-calculator-nusomf</name>

@@ -1,22 +1,22 @@
-package de.itdesign.application;
+package de.jsoncalculator.application;
 
 import java.util.List;
 import java.io.IOException;
 
 import java.util.ArrayList;
 
+import de.jsoncalculator.application.model.data.Entries;
+import de.jsoncalculator.application.model.operations.Operations;
+import de.jsoncalculator.application.model.output.Output;
+import de.jsoncalculator.application.model.output.Outputs;
+import de.jsoncalculator.application.util.UtilityImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import de.itdesign.application.model.data.Entries;
-import de.itdesign.application.model.operations.Operation;
-import de.itdesign.application.model.operations.Operations;
-import de.itdesign.application.model.output.Output;
-import de.itdesign.application.model.output.Outputs;
-import de.itdesign.application.util.UtilityImpl;
+import de.jsoncalculator.application.model.operations.Operation;
 
 
 public class JsonCalculator {

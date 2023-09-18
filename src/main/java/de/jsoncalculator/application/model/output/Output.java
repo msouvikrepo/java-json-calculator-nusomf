@@ -1,4 +1,4 @@
-package de.itdesign.application.model.output;
+package de.jsoncalculator.application.model.output;
 
 public class Output {
 

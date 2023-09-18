@@ -1,4 +1,4 @@
-package de.itdesign.application.model.operations;
+package de.jsoncalculator.application.model.operations;
 
 import java.util.ArrayList;
 import java.util.List;

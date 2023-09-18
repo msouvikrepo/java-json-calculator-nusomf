@@ -1,4 +1,4 @@
-package de.itdesign.application.model.operations;
+package de.jsoncalculator.application.model.operations;
 
 public class Function {
 

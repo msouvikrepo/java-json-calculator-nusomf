@@ -1,18 +1,18 @@
-package de.itdesign.application.util;
+package de.jsoncalculator.application.util;
 
 import java.io.IOException;
 import java.util.List;
 
+import de.jsoncalculator.application.model.data.Entries;
+import de.jsoncalculator.application.model.operations.Operations;
+import de.jsoncalculator.application.model.output.Output;
+import de.jsoncalculator.application.model.output.Outputs;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import de.itdesign.application.model.data.Entries;
-import de.itdesign.application.model.operations.Filter;
-import de.itdesign.application.model.operations.Operation;
-import de.itdesign.application.model.operations.Operations;
-import de.itdesign.application.model.output.Output;
-import de.itdesign.application.model.output.Outputs;
+import de.jsoncalculator.application.model.operations.Filter;
+import de.jsoncalculator.application.model.operations.Operation;
 
 public interface Utility {
 

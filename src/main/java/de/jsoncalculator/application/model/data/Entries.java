@@ -1,4 +1,4 @@
-package de.itdesign.application.model.data;
+package de.jsoncalculator.application.model.data;
 
 import java.util.ArrayList;
 import java.util.List;

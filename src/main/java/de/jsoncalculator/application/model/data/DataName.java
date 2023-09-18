@@ -1,6 +1,6 @@
-package de.itdesign.application.model.operations;
+package de.jsoncalculator.application.model.data;
 
-public class OperationName {
+public class DataName {
 
     private String name;
 
@@ -12,5 +12,6 @@ public class OperationName {
         this.name = name;
     }
 
-    
+
+   
 }

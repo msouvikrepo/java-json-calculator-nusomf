@@ -1,4 +1,4 @@
-package de.itdesign.application.model.data;
+package de.jsoncalculator.application.model.data;
 
 public class ExtendedStatistics {
 

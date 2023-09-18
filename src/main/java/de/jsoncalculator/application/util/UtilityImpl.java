@@ -1,4 +1,4 @@
-package de.itdesign.application.util;
+package de.jsoncalculator.application.util;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,13 +10,19 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import de.jsoncalculator.application.model.data.*;
+import de.jsoncalculator.application.model.operations.*;
+import de.jsoncalculator.application.model.output.Output;
+import de.jsoncalculator.application.model.output.OutputName;
+import de.jsoncalculator.application.model.output.Outputs;
+import de.jsoncalculator.application.model.output.RoundedValue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import de.itdesign.application.model.data.*;
-import de.itdesign.application.model.operations.*;
-import de.itdesign.application.model.output.*;
+import de.jsoncalculator.application.model.data.*;
+import de.jsoncalculator.application.model.operations.*;
+import de.jsoncalculator.application.model.output.*;
 
 
 public class UtilityImpl implements Utility{
@@ -156,7 +162,7 @@ public class UtilityImpl implements Utility{
 
                 JSONObject entryJsonObject = entriesJsonArray.getJSONObject(i);
 
-                DataName dataName = new DataName();                
+                DataName dataName = new DataName();
                 Population population = new Population();
                 Area area = new Area();
                 ExtendedStatistics extendedStatistics = new ExtendedStatistics();

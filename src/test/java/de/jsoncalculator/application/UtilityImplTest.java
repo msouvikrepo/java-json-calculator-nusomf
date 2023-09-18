@@ -1,5 +1,13 @@
-package de.itdesign.application;
+package de.jsoncalculator.application;
 
+import de.jsoncalculator.application.model.operations.Function;
+import de.jsoncalculator.application.model.operations.OperationName;
+import de.jsoncalculator.application.model.operations.Operations;
+import de.jsoncalculator.application.model.output.Output;
+import de.jsoncalculator.application.model.output.OutputName;
+import de.jsoncalculator.application.model.output.Outputs;
+import de.jsoncalculator.application.model.output.RoundedValue;
+import de.jsoncalculator.application.util.UtilityImpl;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Test;
@@ -9,24 +17,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Arrays;
 import java.util.List;
 
-import de.itdesign.application.model.data.Area;
-import de.itdesign.application.model.data.DataName;
-import de.itdesign.application.model.data.Entries;
-import de.itdesign.application.model.data.Entry;
-import de.itdesign.application.model.data.ExtendedStatistics;
-import de.itdesign.application.model.data.Population;
-import de.itdesign.application.model.operations.Field;
-import de.itdesign.application.model.operations.Filter;
-import de.itdesign.application.model.operations.Function;
-import de.itdesign.application.model.operations.Operation;
-import de.itdesign.application.model.operations.OperationFields;
-import de.itdesign.application.model.operations.OperationName;
-import de.itdesign.application.model.operations.Operations;
-import de.itdesign.application.model.output.Output;
-import de.itdesign.application.model.output.OutputName;
-import de.itdesign.application.model.output.Outputs;
-import de.itdesign.application.model.output.RoundedValue;
-import de.itdesign.application.util.UtilityImpl;
+import de.jsoncalculator.application.model.data.Area;
+import de.jsoncalculator.application.model.data.DataName;
+import de.jsoncalculator.application.model.data.Entries;
+import de.jsoncalculator.application.model.data.Entry;
+import de.jsoncalculator.application.model.data.ExtendedStatistics;
+import de.jsoncalculator.application.model.data.Population;
+import de.jsoncalculator.application.model.operations.Field;
+import de.jsoncalculator.application.model.operations.Filter;
+import de.jsoncalculator.application.model.operations.Operation;
+import de.jsoncalculator.application.model.operations.OperationFields;
 
 public class UtilityImplTest {
 
